@@ -8,6 +8,8 @@ TiffinHub is a Django-based web application that provides tiffin services to use
 - Vendor profile management
 - Customer subscription management
 - Track past and current subscriptions
+- Daily menu updates with price details.
+- Upload and manage profile images.
   
 ## Technologies Used
 
