@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Profile</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #659DBD;
+            font-family: Arial, sans-serif;
+            color: #2d0505;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        header {
+            width: 100%;
+            background-color: #fbecb2;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #2d0505;
+        }
+
+        .vendor-profile,
+        .customer-feedback {
+            width: 48%;
+            background-color: #fbecb2;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .vendor-profile h2,
+        .customer-feedback h2 {
+            margin-top: 0;
+        }
+
+        .vendor-profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .vendor-menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .vendor-menu li {
+            margin-bottom: 5px;
+        }
+
+        .customer-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .customer-list li {
+            margin-bottom: 10px;
+        }
+
+        .customer-name {
+            font-weight: bold;
+        }
+
+        .customer-rating {
+            color: #ffa500;
+        }
+
+        .customer-remarks {
+            margin-left: 10px;
+        }
+
+        .customer-rating i {
+            font-size: 20px;
+        }
+
+        .update-button {
+            background-color: #ffa500;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .update-button:hover {
+            background-color: #ff8c00;
+        }
+        nav {
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2d0505;
+            margin-left: 20px;
+        }
+
+        .nav-icon {
+            font-size: 24px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">
+            Home
+            <i class="uil uil-home nav-icon"></i>
+        </a>
+    </nav>
+    
+    <header>
+        <div class="container">
+            <h1>Vendors</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="vendor-profile">
+            <h2>Current Vendors</h2>
+            {% for vendor in current_vendors %}
+            {{ forloop.counter }}. Subscribed to:
+            <ul>
+            <li>{{ vendor.vendor.business_name }}</li>
+            <li>Subscribed on: {{ vendor.date_subscribed }}</li>
+            <li>Contact no.: {{ vendor.vendor.user.phone_number}}</li>
+            </ul><br>
+            {% endfor %}
+        </div>
+        <div class="customer-feedback">
+            <h2>Past Vendors</h2>
+            {% for vendor in past_vendors %}
+            {{ forloop.counter }}. Subscribed to:
+            <ul>
+            <li>{{ vendor.vendor.business_name }}</li>
+            <li>Subscribed on: {{ vendor.date_subscribed }}</li>
+            <li> Unsubscribed on: {{ vendor.date_unsubscribed }}</li>
+            <li>Contact no.: {{ vendor.vendor.user.phone_number}}</li>
+            </ul><br> 
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

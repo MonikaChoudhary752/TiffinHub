@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("/static/vendorForm_bg.jpg"); /* Replace 'background_image.jpg' with your actual background image file */
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+    margin-top: 80px;
+    background-color: #f5f5dc; /* Cream background color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #ffcc66; /* Yellowish orange text color */
+    text-align: center;
+}
+
+input[type="text"], 
+textarea,
+input[type="file"] {
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+label {
+    display: inline-block;
+    width: 40px;
+    background-color: #ffa500; /* Orange background color for file upload button */
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+label:hover {
+    background-color: #ff8c00; /* Darker shade of orange on hover */
+}
+
+button {
+    background-color: #ffa500; /* Orange background color for submit button */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #ff8c00; /* Darker shade of orange on hover */
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+}

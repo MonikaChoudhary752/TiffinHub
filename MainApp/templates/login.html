@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <!-- Unicons -->
+  {% load static %}
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link rel="stylesheet" href="{% static 'style4.css' %}">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="#" class="nav_logo">TiffinHub</a>
+      <ul class="nav_items">
+        <li class="nav_item">
+          <a href="#" class="nav_link">Home</a>
+          <a href="#" class="nav_link">Product</a>
+          <a href="#" class="nav_link">Services</a>
+          <a href="#" class="nav_link">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home -->
+  <section class="home">
+    <div class="form_container">
+    <form  method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- Login Form -->
+      <div class="form login_form">
+        <h2>Login</h2>
+        <!-- {% if messages %}
+        {{message.tags}}
+        <div class="alert alert-primary" role="alert">
+          {% for message in messages %}
+          {{message}}
+          {% endfor %}
+        </div>
+        {% endif %} -->
+        <div class="input_box">
+          <i class="uil-phone Mobile"></i>
+          <input type="tel" placeholder="Enter your Mobile" name="phone_number" required>
+        </div>
+        <div class="input_box">
+          <input type="password" placeholder="Enter your password" name="password" required>
+          <i class="uil uil-lock password"></i>
+          <i class="uil uil-eye-slash pw_hide"></i>
+        </div>
+        <!-- <div class="option_field">
+          <span class="checkbox">
+            <input type="checkbox" id="check" name="remember_me" value="True">
+            <label for="check">Remember me</label>
+          </span>
+        </div> -->
+        <p style="color:rgb(8, 8, 71);font-size:10px;">Don't have account? <a href="/user-register/">Register</a></p>
+        <button class="button">Login Now</button>
+      </div>
+    </form>
+    </div>
+  </section>
+</body>
+</html>

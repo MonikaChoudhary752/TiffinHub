@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIFFINHUB</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"> 
+    <link rel="stylesheet" href="{% static 'style3.css' %}"> 
+</head>
+<body>
+    <img id="logo" src="/static/logo.jpg" alt="Website Logo">
+
+<header>
+    
+
+    <div class="container">
+        <nav>
+            <ul>
+                
+                <li><a href="/">Home</a></li>
+                {% if request.user.is_vendor %}
+                <li><a href="/vendor-profile/{{request.user.id}}/">Vendor Profile</a></li>
+                {% endif %}
+                {% if request.user.is_vendor %}
+                <li><a href="/customers/">Customers</a></li>
+                {% endif %}
+                <li><a href="/subscribed-vendors/">Subscribed Vendors</a></li>
+                <li><a href="/user-register/">Register</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a href="/logout/">Logout</a></li>
+                {% else %}
+                <li><a href="/user-login/">Login</a></li>
+                {% endif %}
+                
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+            </div>
+        </nav>
+    </div>
+</header>
+
+<section id="about-section">
+    
+        <div class="about-content">
+            <img src="/static/home1.jpg" alt="About Image">
+            <H1><b>ABOUT US : </b></H1>
+            <p>Welcome to TiffinHub! <br> We serve you multiple choices for your Tiffin. </p>
+        </div>
+    
+</section> 
+
+<section>    
+    <div class="containerss">
+        <h1 style="margin: 10px" ;>Vendor Profile</h1>
+        
+        <div class="card__container">
+            {% for user in users %}   
+           <article class="card__article">
+              <img src="/media/{{ user.profile_image}}" alt="image" class="card__img">
+
+              <div class="card__data">
+                 <span class="card__description">{{ user.business_name }}</span>
+                 <h2 class="card__title">Owner: {{ user.user.first_name}} {{ user.user.last_name}}</h2>
+                 <p>Address: {{ user.user.address }}</p>
+                 <p>Price Per Month: {{ user.price }}</p>
+                 <a href="/read-vendor-info/{{user.user.id}}/" class="card__button">Read More</a>
+              </div>
+           </article>
+           {% endfor %}
+
+        </div>
+     </div></section> 
+     
+<footer>
+    <div class="container">
+        <ul class="social-icons">
+            <li><a href="#"><i class="uil uil-instagram"></i></a></li>
+            <li><a href="#"><i class="uil uil-twitter"></i></a></li>
+            <li><a href="#"><i class="uil uil-facebook-f"></i></a></li>
+        </ul>
+        <div class="contact-info">
+            <p>Email: example@example.com</p>
+            <p>Address: Your Address</p>
+            <p>Contact: Phone Number</p>
+        </div>
+        <div class="contact-us">
+            <a href="#">Contact Us</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
